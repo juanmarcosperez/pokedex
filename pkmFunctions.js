@@ -4,7 +4,7 @@
 var pokemon_name = pokemon_data.value;
 document.getElementById("pkName").value="";
 
-fetch('https://pokeapi.co/api/v2/pokemon/' + pokemon_name, {
+fetch('https://pokeapi.co/api/v2/pokemon/' + pokemon_name + '/', {
     mode: 'cors',
     method: 'GET',
   })
@@ -19,6 +19,7 @@ fetch('https://pokeapi.co/api/v2/pokemon/' + pokemon_name, {
 
     $('#pokemonDisplay').empty();
     $('#pokemonDisplay').append('<p> Pokemon Name: '+data.name +'</p>');
+    $('#pokemonDisplay').append('<p> Ability: ' + data.abilities[1].ability.name + '</p>');
     $('#pokemonDisplay').append('<p> Pokemon Attack: ' + data.stats[4].base_stat + '</p>');
     $('#pokemonDisplay').append('<p> Pokemon Defense: ' + data.stats[3].base_stat + '</p>');
     $('#pokemonDisplay').append('<p> Pokemon Special attack: ' + data.stats[2].base_stat + '</p>');
